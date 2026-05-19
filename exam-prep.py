@@ -138,7 +138,10 @@ def main():
     )
 
     args = parser.parse_args()
-    
+
+    print(f"Input files: {args.input_files}")
+    print(f"Output file: {args.output}")
+
     logging_enabled = args.verbose
     
     # Read all input files into a list of DataFrames
@@ -163,6 +166,7 @@ def main():
 
     # Append to the output file (no header, no index)
     df.to_csv(args.output, mode='w', index=False, header=False)
+    print(f"Data combined and saved to {args.output}")
 
 if __name__ == "__main__":
     main()
